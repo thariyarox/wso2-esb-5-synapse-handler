@@ -11,16 +11,20 @@ Copy the com.wso2.custom.synapse.handler-1.0.jar file into wso2esb-5.0.0/reposit
 
 Modify the wso2esb-5.0.0/repository/conf/synapse-handlers.xml file and engage the hander as below.
 
+```xml
 <handlers>
 	    <handler name="ResponseHeaderHandler" class="com.wso2.custom.synapse.handler.ResponseHeaderHandler"/>
 </handlers>
+```
 
 Create the sample seqence wso2esb-5.0.0/repository/deployment/server/synapse-configs/default/sequences/RESPONSE_HEADER_SEQ.xml putting the following content.
 
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence xmlns="http://ws.apache.org/ns/synapse" name="RESPONSE_HEADER_SEQ">
    <header name="X-Frame-Options" scope="transport" value="DENY"/>
 </sequence>
+```
 
 Note that the sequence name RESPONSE_HEADER_SEQ is hardcoded in the source, so we need to create the sequence with the same name.
 
